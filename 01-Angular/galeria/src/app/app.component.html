@@ -1,5 +1,9 @@
 <h1 [class]="clase">Titulo {{title}}</h1>
 
+<pre>
+  {{_carritoService.carritoCompras | json}}
+</pre>
+
 <app-item-galeria
 *ngFor="let elemento of arregloElementosPapeleria"
 [titulo]="elemento.titulo" 

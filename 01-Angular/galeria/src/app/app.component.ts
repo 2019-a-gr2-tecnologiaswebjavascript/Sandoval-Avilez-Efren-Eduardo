@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CarritoService } from './servicios/carrito/carrito.service';
 
 @Component({
   selector: 'app-root',
@@ -14,12 +15,14 @@ export class AppComponent {
     {
       titulo: 'Don Jose',
       nombre: 'Lapiz',
-      descripcion: 'HB'
+      descripcion: 'HB',
+      notas: ['Hot Dog', 'Hamburguesas']
     },
     {
       titulo: 'Don Pepito',
       nombre: 'Borrador',
-      descripcion: 'De queso'
+      descripcion: 'De queso',
+      notas: []
     },
     {
       titulo: 'Doña Maria',
@@ -27,6 +30,8 @@ export class AppComponent {
       descripcion: 'Azul'
     }
   ];
+
+  constructor(private readonly _carritoService: CarritoService) {}
 
   cambioMontania(evento: boolean) {
     this.clase = 'amarillo';

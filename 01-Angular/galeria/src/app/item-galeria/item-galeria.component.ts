@@ -19,6 +19,9 @@ export class ItemGaleriaComponent implements OnInit, OnDestroy {
   @Input()
   textoBoton;
 
+  @Input()
+  notas;
+
   @Output()
   cambioMontania: EventEmitter<boolean> = new EventEmitter();
 
@@ -50,10 +53,20 @@ export class ItemGaleriaComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     console.log('Empezo');
+    console.log(this._carritoService.carritoCompras);
   }
 
   ngOnDestroy(): void {
     console.log('Termino');
+  }
+
+  agregarCarrito(valorCarrito) {
+    const itemCarrito = {
+      valor: valorCarrito,
+      nombreTienda: this.titulo
+    };
+
+    this._carritoService.carritoCompras.splice(0, 0, itemCarrito);
   }
 
 }
