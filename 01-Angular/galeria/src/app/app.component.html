@@ -1,18 +1,15 @@
-<h1 class="rojo">Titulo {{title}}</h1>
-<app-item-galeria
-  nombreItem = "Lapiz"
-  textoBoton = "HB"
->
-</app-item-galeria>
+<h1 [class]="clase">Titulo {{title}}</h1>
+
+<pre>
+  {{_carritoService.carritoCompras | json}}
+</pre>
 
 <app-item-galeria
-  nombreItem = "Borrador"
-  textoBoton = "De queso"
->
-</app-item-galeria>
-
-<app-item-galeria
-  nombreItem = "Tinta"
-  textoBoton = "Azul"
+*ngFor="let elemento of arregloElementosPapeleria"
+[titulo]="elemento.titulo" 
+[nombreItem]="elemento.nombre"
+[textoBoton]="elemento.descripcion"
+(cambioMontania)="cambioMontania($event)"
+(cambioPlaya)="cambioPlaya($event)"
 >
 </app-item-galeria>

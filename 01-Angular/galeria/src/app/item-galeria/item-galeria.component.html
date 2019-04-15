@@ -1,5 +1,7 @@
-<h1 class="rojo">Item Galeria - {{title}}</h1>
+<h1 class="rojo">Tienda: {{titulo}}</h1>
 
 <p>Nombre: {{nombreItem}}</p>
 
 <button (click)="alertar()">{{textoBoton}}</button>
+
+<img [src]="urlImagen" alt="" (click)="cambiarImagen()">
