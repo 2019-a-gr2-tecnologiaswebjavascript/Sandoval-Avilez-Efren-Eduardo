@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { CarritoService } from '../servicios/carrito/carrito.service';
+import { ItemCarritoCompras } from '../../interfaces/item-carrito-compras';
 
 @Component({
   selector: 'app-item-galeria',
@@ -60,13 +61,22 @@ export class ItemGaleriaComponent implements OnInit, OnDestroy {
     console.log('Termino');
   }
 
-  agregarCarrito(valorCarrito) {
-    const itemCarrito = {
+  agregarCarrito(valorCarrito: string) {
+    const itemCarrito: ItemCarritoCompras = {
       valor: valorCarrito,
-      nombreTienda: this.titulo
+      nombreTienda: this.titulo,
+      fechaCompra: new Date()
     };
 
     this._carritoService.carritoCompras.splice(0, 0, itemCarrito);
   }
 
 }
+
+
+
+
+/* class CarritoCompraClase implements CarritoComprasInterface{
+  valor: string;
+  nombreTienda: string;
+} */
