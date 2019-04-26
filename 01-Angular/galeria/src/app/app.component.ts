@@ -10,27 +10,41 @@ export class AppComponent {
   title = 'Floreria';
 
   clase = 'rojo';
+  estaMostrando = false;
 
   arregloElementosPapeleria = [
     {
       titulo: 'Don Jose',
       nombre: 'Lapiz',
       descripcion: 'HB',
-      notas: ['Hot Dog', 'Hamburguesas']
+      notas: [
+        'Hot Dog',
+        'Hamburguesas',
+        'Papitas'
+      ]
     },
     {
       titulo: 'Don Pepito',
       nombre: 'Borrador',
       descripcion: 'De queso',
-      notas: []
+      notas: [
+        'Papitas',
+        'Empanadas'
+      ]
     },
     {
       titulo: 'Doña Maria',
       nombre: 'Tinta',
-      descripcion: 'Azul'
+      descripcion: 'Azul',
+      notas: [
+        'Motes',
+        'Fritada',
+        'Papitas'
+      ]
     }
   ];
 
+  // tslint:disable-next-line:variable-name
   constructor(private readonly _carritoService: CarritoService) {}
 
   cambioMontania(evento: boolean) {
@@ -39,5 +53,9 @@ export class AppComponent {
 
   cambioPlaya(evento: boolean) {
     this.clase = 'rojo';
+  }
+
+  mostrar(estaMostrando) {
+    this.estaMostrando = estaMostrando;
   }
 }
