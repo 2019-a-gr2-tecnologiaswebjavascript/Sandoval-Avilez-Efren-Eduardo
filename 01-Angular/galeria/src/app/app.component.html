@@ -4,12 +4,19 @@
   {{_carritoService.carritoCompras | json}}
 </pre>
 
-<app-item-galeria
-*ngFor="let elemento of arregloElementosPapeleria"
-[titulo]="elemento.titulo" 
-[nombreItem]="elemento.nombre"
-[textoBoton]="elemento.descripcion"
-(cambioMontania)="cambioMontania($event)"
-(cambioPlaya)="cambioPlaya($event)"
->
-</app-item-galeria>
+<button (click)="mostrar(true)">Mostrar</button>
+
+<button (click)="mostrar(false)">Ocultar</button>
+
+<div *ngIf="estaMostrando">
+  <app-item-galeria
+  *ngFor="let elemento of arregloElementosPapeleria"
+  [titulo]="elemento.titulo" 
+  [nombreItem]="elemento.nombre"
+  [textoBoton]="elemento.descripcion"
+  [notas]="elemento.notas"
+  (cambioMontania)="cambioMontania($event)"
+  (cambioPlaya)="cambioPlaya($event)"
+  >
+  </app-item-galeria>
+</div>

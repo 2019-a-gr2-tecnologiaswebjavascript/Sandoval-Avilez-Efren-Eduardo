@@ -9,7 +9,7 @@ import { ItemCarritoCompras } from '../../interfaces/item-carrito-compras';
 })
 export class ItemGaleriaComponent implements OnInit, OnDestroy {
 
-  title = 'Papeleria';
+  static title = 'Papeleria';
 
   @Input()
   titulo;
@@ -31,8 +31,11 @@ export class ItemGaleriaComponent implements OnInit, OnDestroy {
 
   urlImagen = 'https://www.demos.org/sites/default/files/blog/glacier-national-park-montana-223702.jpg';
 
+  // tslint:disable-next-line:variable-name
+  constructor(private readonly _carritoService: CarritoService) {}
+
   alertar() {
-    alert('Pasando mensajes al padre desde ' + this.nombreItem);
+    alert('Auxilio me desmayo: ' + this.nombreItem);
   }
 
   cambiarImagen() {
@@ -49,9 +52,6 @@ export class ItemGaleriaComponent implements OnInit, OnDestroy {
     }
   }
 
-  // tslint:disable-next-line:variable-name
-  constructor(private readonly _carritoService: CarritoService) { }
-
   ngOnInit() {
     console.log('Empezo');
     console.log(this._carritoService.carritoCompras);
@@ -67,16 +67,7 @@ export class ItemGaleriaComponent implements OnInit, OnDestroy {
       nombreTienda: this.titulo,
       fechaCompra: new Date()
     };
-
-    this._carritoService.carritoCompras.splice(0, 0, itemCarrito);
+    const respuestaCarrito = this._carritoService.agregarCarritoDeCompras(itemCarrito);
+    console.log(respuestaCarrito);
   }
-
 }
-
-
-
-
-/* class CarritoCompraClase implements CarritoComprasInterface{
-  valor: string;
-  nombreTienda: string;
-} */
