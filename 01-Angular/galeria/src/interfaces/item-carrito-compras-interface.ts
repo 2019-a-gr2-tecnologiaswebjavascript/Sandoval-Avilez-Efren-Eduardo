@@ -1,5 +1,4 @@
-//Para tipar solo use interface
-export interface ItemCarritoCompras {
+export interface ItemCarritoComprasInterface {
     valor: string;
     nombreTienda: string;
     fechaCompra?: Date;

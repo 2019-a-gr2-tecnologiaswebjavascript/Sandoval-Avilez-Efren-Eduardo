@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { CarritoService } from '../servicios/carrito/carrito.service';
-import { ItemCarritoCompras } from '../../interfaces/item-carrito-compras';
+import { ItemCarritoComprasInterface } from '../../interfaces/item-carrito-compras-interface';
 
 @Component({
   selector: 'app-item-galeria',
@@ -62,7 +62,7 @@ export class ItemGaleriaComponent implements OnInit, OnDestroy {
   }
 
   agregarCarrito(valorCarrito: string) {
-    const itemCarrito: ItemCarritoCompras = {
+    const itemCarrito: ItemCarritoComprasInterface = {
       valor: valorCarrito,
       nombreTienda: this.titulo,
       fechaCompra: new Date()
