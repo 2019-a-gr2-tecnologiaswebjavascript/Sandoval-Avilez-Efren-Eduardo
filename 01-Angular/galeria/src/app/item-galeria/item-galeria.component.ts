@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { CarritoService } from '../servicios/carrito/carrito.service';
-import { ItemCarritoCompras } from '../../interfaces/item-carrito-compras';
+import { ItemCarritoComprasInterface } from '../../interfaces/item-carrito-compras-interface';
+import { TiendaInterface } from 'src/interfaces/tienda-interface';
+import { CarritoComprasInterface } from 'src/interfaces/carrito-compras-interface';
 
 @Component({
   selector: 'app-item-galeria',
@@ -61,13 +63,19 @@ export class ItemGaleriaComponent implements OnInit, OnDestroy {
     console.log('Termino');
   }
 
-  agregarCarrito(valorCarrito: string) {
-    const itemCarrito: ItemCarritoCompras = {
-      valor: valorCarrito,
-      nombreTienda: this.titulo,
+  agregarCarrito(producto: string) {
+
+    const itemCarrito: ItemCarritoComprasInterface = {
+      nombreProducto: producto
+    };
+    const carritoCompras: CarritoComprasInterface = {
       fechaCompra: new Date()
     };
-    const respuestaCarrito = this._carritoService.agregarCarritoDeCompras(itemCarrito);
+    const tienda: TiendaInterface = {
+      nombreTienda: this.titulo
+    };
+
+    const respuestaCarrito = this._carritoService.agregarCarritoDeCompras(itemCarrito, carritoCompras, tienda);
     console.log(respuestaCarrito);
   }
 }

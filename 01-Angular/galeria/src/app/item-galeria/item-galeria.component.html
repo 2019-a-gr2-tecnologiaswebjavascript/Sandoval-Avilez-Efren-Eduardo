@@ -5,3 +5,9 @@
 <button (click)="alertar()">{{textoBoton}}</button>
 
 <img [src]="urlImagen" alt="" (click)="cambiarImagen()">
+
+<div *ngFor="let nota of notas">
+    <button (click)="agregarCarrito(nota)">
+        Anadir: {{nota}}
+     </button>
+ </div>
