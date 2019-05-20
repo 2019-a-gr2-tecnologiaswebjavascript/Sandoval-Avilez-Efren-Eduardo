@@ -7,6 +7,13 @@ Consulta: {{q}}
 <br>
 <br>
 
+<pre>valido: {{formularioUsuario.valid}}</pre>
+<pre>invalido: {{formularioUsuario.invalid}}</pre>
+<pre>dirty: {{formularioUsuario.dirty}}</pre>
+<pre>pristine: {{formularioUsuario.pristine}}</pre>
+<pre>touch: {{formularioUsuario.touched}}</pre>
+<pre>untouch: {{formularioUsuario.untouched}}</pre>
+
 <form
   #formularioUsuario = "ngForm"
   novalidate
@@ -14,22 +21,65 @@ Consulta: {{q}}
   >
 
   <label for="nombre">Nombre</label>
-  <input id="nombre" name="nombreUsuario" type="text" [(ngModel)]="nombre">
+  <input 
+  id="nombre" 
+  required 
+  minlength="5"
+  maxlength="15"
+  name="nombreUsuario" 
+  type="email"
+  pattern="([A-Z])\w+"
+  [(ngModel)]="nombre"
+  #vtNombre="ngModel">
+  
+  <div *ngIf="vtNombre.errors && vtNombre.dirty">
+    <h1>Errores</h1>
+    <p>Exite un error</p>
+    <p *ngIf="vtNombre.errors.minlength">Como mínimo usted debe ingresar 5 caracteres.</p>
+    <p *ngIf="vtNombre.errors.maxlength">Como máximo debe escribir 15 caracteres.</p>
+  </div>
+
+  <pre>ERROR:
+    {{vtNombre.errors | json}}
+  </pre>
+  <pre>valido: {{vtNombre.valid | json}}</pre>
+  <pre>invalido: {{vtNombre.invalid | json}}</pre>
+  <pre>dirty: {{vtNombre.dirty | json}}</pre>
+  <pre>pristine: {{vtNombre.pristine | json}}</pre>
+  <pre>touch: {{vtNombre.touched | json}}</pre>
+  <pre>untouch: {{vtNombre.untouched | json}}</pre>
+
+  <p *ngIf="vtNombre.valid">Nombre Valido</p>
+  <p *ngIf="vtNombre.invalid">Nombre Invalido</p>
   
   <br>
 
   <label for="apellido">Apellido</label>
-  <input id="apellido" name="apellidoUsuario" type="text" [(ngModel)]="apellido">
+  <input id="apellido" required name="apellidoUsuario" type="text" [(ngModel)]="apellido">
 
   <br>
 
-  <label for="consulta">Consulta a Google</label>
-  <input id="consulta" name="q" type="text" [(ngModel)]="q">
+  <label for="cedula">Cedula</label>
+  <input 
+  id="cedula"
+  required 
+  minlength="10"
+  maxlength="10"
+  pattern="([0-9]){10}\w+"
+  name="cedula" 
+  type="text" [(ngModel)]="cedula"
+  #vtCedula="ngModel"
+  >
+  <pre>ERROR:
+    {{vtCedula.errors | json}}
+  </pre>
 
   <br>
 
   <button type="button">Tipo boton</button>
+  <br>
   <button type="reset">Tipo reset</button>
-  <button type="submit">Tipo submit</button>
-  <button>Ir a Google</button>
+  <br>
+  <button type="submit" [disabled]="formularioUsuario.invalid">Tipo submit</button>
+
 </form>
