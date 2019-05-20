@@ -9,10 +9,10 @@ export class AppComponent {
   title = 'formularios';
   nombre: string;
   apellido: string;
-  q: string;
+  cedula: string;
 
   guardarUsuario(formulario) {
     console.log(formulario);
-    this.nombre = "Benito C.";
+    this.nombre = 'Benito C.';
   }
 }
