@@ -1,0 +1,13 @@
+<h1>Inicio de Sesión</h1>
+
+<form
+    #formularioUsuario="ngForm"
+    novalidate
+    (submit)="guardarUsuario(formularioUsuario)"
+>
+  <label for="nombre-cajero">Cajero</label>
+  <input id="nombre-cajero" name="nombreCajero" type="text" [(ngModel)]="nombreCajero">
+
+  <button type="submit">Entrar</button>
+
+</form>
