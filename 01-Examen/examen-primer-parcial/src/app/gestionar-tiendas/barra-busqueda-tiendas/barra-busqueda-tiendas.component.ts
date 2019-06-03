@@ -15,7 +15,7 @@ export class BarraBusquedaTiendasComponent implements OnInit {
   }
 
   buscarPorNombreTienda() {
-
+    //aquí va la lógica del llamado al método búsqueda del servicio: tienda-service
   }
 
 }
