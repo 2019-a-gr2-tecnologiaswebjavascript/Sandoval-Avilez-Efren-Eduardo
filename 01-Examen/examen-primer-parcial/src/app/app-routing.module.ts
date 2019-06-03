@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { LoginCajeroComponent } from './login-cajero/login-cajero.component';
 import { RegistroCajeroComponent } from './registro-cajero/registro-cajero.component';
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
@@ -15,32 +16,32 @@ const routes: Routes = [
     component: LoginCajeroComponent
   },
   {
-    path: 'registrar-cajero',
+    path: 'app/registrar-cajero',
     component: RegistroCajeroComponent
   },
   {
-    path: 'menu-principal',
+    path: 'app/menu-principal',
     component: MenuPrincipalComponent,
     canActivate: [
       EstaLogueadoGuard
     ]
   },
   {
-    path: 'listar-compras',
+    path: 'app/listar-compras',
     component: RevisarComprasComponent,
     canActivate: [
       EstaLogueadoGuard
     ]
   },
   {
-    path: 'gestion-tiendas',
+    path: 'app/gestion-tiendas',
     component: GestionarTiendasComponent,
     canActivate: [
       EstaLogueadoGuard
     ]
   },
   {
-    path: 'comprar',
+    path: 'app/comprar',
     component: ComprarComponent,
     canActivate: [
       EstaLogueadoGuard
@@ -66,7 +67,7 @@ const routes: Routes = [
     RouterModule.forRoot(
       routes,
       {
-        useHash: true
+        enableTracing: true
       }
     )],
   exports: [RouterModule]
