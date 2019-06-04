@@ -5,7 +5,20 @@ import { Cajero } from 'src/app/interfaces/cajero.interface';
   providedIn: 'root'
 })
 export class CajeroService {
-  cajeros: Cajero[];
+  cajeros: Cajero[] = [
+    {
+      nombreCajero: 'Efren',
+      apellidoCajero: 'Sandoval'
+    },
+    {
+      nombreCajero: 'Edison',
+      apellidoCajero: 'Tamayo'
+    },
+    {
+      nombreCajero: 'Jorge',
+      apellidoCajero: 'Carrillo'
+    }
+  ];
 
   constructor() { }
 
