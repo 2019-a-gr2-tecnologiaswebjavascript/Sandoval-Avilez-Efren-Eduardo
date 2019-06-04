@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../servicios/app/login.service';
+import { Cajero } from '../interfaces/cajero.interface';
 
 @Component({
   selector: 'app-login-cajero',
@@ -7,16 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginCajeroComponent implements OnInit {
 
-  nombreCajero: string;
-  apellidoCajero: string;
+  nombreCompletoCajero: string;
 
-  constructor() { }
+  mensajeValidacion: string;
+
+  constructor(
+    private readonly _loginService: LoginService
+  ) { }
 
   ngOnInit() {
   }
 
-  guardarUsuario(formulario) {
-    console.log(this.nombreCajero + this.apellidoCajero);
+  login() {
+    const cajeroParaValidar: Cajero = {
+      nombreCajero: this.nombreCompletoCajero.split(' ')[0],
+      apellidoCajero: this.nombreCompletoCajero.split(' ')[1]
+    };
+    console.log(cajeroParaValidar);
+    this.mensajeValidacion = this._loginService.login(cajeroParaValidar);
   }
 
 }

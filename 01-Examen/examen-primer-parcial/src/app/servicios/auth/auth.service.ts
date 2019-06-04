@@ -14,17 +14,18 @@ export class AuthService {
     private readonly _router: Router
     ) { }
 
-  login(cajero: Cajero) {
-    if (this._cajeroService.cajeros.find(cajeroEnArreglo => cajeroEnArreglo === cajero)) {
+  login(cajeroRecibido: Cajero) {
+    console.log(cajeroRecibido);
+    if (this._cajeroService.cajeros.some(cajero => cajero.nombreCajero === cajeroRecibido.nombreCajero)) {
       this.estaLogeado = true;
       const url = [
-        '/menu-principal'
+        '/app/menu-principal'
       ];
 
       const parametros = {
         queryParams: {
-          nombre: cajero.nombreCajero,
-          apellido: cajero.apellidoCajero
+          nombre: cajeroRecibido.nombreCajero,
+          apellido: cajeroRecibido.apellidoCajero
         }
       };
 
@@ -37,8 +38,8 @@ export class AuthService {
 
       const parametros = {
         queryParams: {
-          nombre: cajero.nombreCajero,
-          apellido: cajero.apellidoCajero
+          nombre: cajeroRecibido.nombreCajero,
+          apellido: cajeroRecibido.apellidoCajero
         }
       };
 
