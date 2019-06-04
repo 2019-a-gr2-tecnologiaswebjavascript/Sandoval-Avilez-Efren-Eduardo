@@ -22,7 +22,13 @@ export class CajeroService {
 
   constructor() { }
 
-  registrarCajero(cajero: Cajero) {
-    this.cajeros.push(cajero);
+  registrarCajero(cajero: Cajero): string {
+    let mensaje = '';
+    if (this.cajeros.push(cajero)) {
+      mensaje = 'Cajero registrado exitosamente.';
+    } else {
+      mensaje = 'Ha ocurrido un error, el cajero no pudo ser registrado';
+    }
+    return mensaje;
   }
 }

@@ -33,7 +33,7 @@ export class AuthService {
       return true;
     } else {
       const url = [
-        '/'
+        '/app/registrar-cajero'
       ];
 
       const parametros = {
