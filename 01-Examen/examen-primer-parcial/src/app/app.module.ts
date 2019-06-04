@@ -11,6 +11,7 @@ import { RutaNoEncontradaModule } from './ruta-no-encontrada/ruta-no-encontrada.
 import { CajeroService } from './servicios/app/cajero.service';
 import { AuthService } from './servicios/auth/auth.service';
 import { EstaLogeadoService } from './servicios/guards/esta-logueado.service';
+import { RevisarComprasModule } from './revisar-compras/revisar-compras.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { EstaLogeadoService } from './servicios/guards/esta-logueado.service';
     LoginCajeroModule,
     MenuPrincipalModule,
     RegistroCajeroModule,
-    RutaNoEncontradaModule
+    RutaNoEncontradaModule,
+    RevisarComprasModule
   ],
   providers: [
     CajeroService,
