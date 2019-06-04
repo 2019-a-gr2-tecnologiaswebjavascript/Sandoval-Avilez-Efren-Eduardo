@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RevisarComprasComponent } from './revisar-compras.component';
+import { ComponentesComunesModule } from '../componentes-comunes/componentes-comunes.module';
 
 @NgModule({
-  declarations: [RevisarComprasComponent],
+  declarations: [
+    RevisarComprasComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    ComponentesComunesModule
   ]
 })
 export class RevisarComprasModule { }
