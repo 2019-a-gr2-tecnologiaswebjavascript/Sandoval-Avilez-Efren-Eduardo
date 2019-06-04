@@ -3,7 +3,7 @@
 <form
     #formularioUsuario="ngForm"
     novalidate
-    (submit)="guardarUsuario(formularioUsuario)"
+    (submit)="registrarCajero()"
 >
   <label for="nombre-cajero">Nombre:</label>
   <input id="nombre-cajero" name="nombreCajero" type="text" [(ngModel)]="nombreCajero">
@@ -15,3 +15,5 @@
   <button type="submit">Registrar</button>
 
 </form>
+
+<p>{{mensajeValidacion}}</p>
