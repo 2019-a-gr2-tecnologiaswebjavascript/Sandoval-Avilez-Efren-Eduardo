@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>Numero de Factura</th>
+    <th>Cajero</th>
+    <th>Comprador</th>
+  </tr>
+  <tr *ngFor="let resultado of resultados">
+    <th>{{resultado.numeroFactura}}</th>
+    <th>{{resultado.nombreCajeroAtendioCompra}}</th>
+    <th>{{resultado.nombreComprador}}</th>
+  </tr>
+</table>

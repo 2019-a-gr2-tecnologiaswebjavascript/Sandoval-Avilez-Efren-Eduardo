@@ -1,0 +1,17 @@
+<h1>Registro de Nuevo Cajero</h1>
+
+<form
+    #formularioUsuario="ngForm"
+    novalidate
+    (submit)="guardarUsuario(formularioUsuario)"
+>
+  <label for="nombre-cajero">Nombre:</label>
+  <input id="nombre-cajero" name="nombreCajero" type="text" [(ngModel)]="nombreCajero">
+
+  <label for="apellido-cajero">Apellido:</label>
+  <input id="apellido-cajero" name="apellidoCajero" type="text" [(ngModel)]="apellidoCajero">
+
+
+  <button type="submit">Registrar</button>
+
+</form>

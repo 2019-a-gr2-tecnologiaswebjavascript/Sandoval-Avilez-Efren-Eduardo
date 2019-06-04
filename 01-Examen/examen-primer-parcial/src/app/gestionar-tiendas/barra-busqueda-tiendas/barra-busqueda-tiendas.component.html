@@ -1,0 +1,16 @@
+<form
+    #formularioUsuario="ngForm"
+    novalidate
+    (submit)="buscarPorNombreTienda()"
+>
+  <label for="nombre-tienda">Tienda</label>
+  <input id="nombre-tienda" name="nombreTienda" type="text" [(ngModel)]="nombreTienda">
+
+  <button type="submit">Buscar</button>
+
+</form>
+<div>
+  <a [routerLink]="['/app','registar-tienda']">
+    <button type="button">Crear Tienda</button>
+  </a>  
+</div>
