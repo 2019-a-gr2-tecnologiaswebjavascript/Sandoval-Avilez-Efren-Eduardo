@@ -1,0 +1,11 @@
+<form
+    #formularioUsuario="ngForm"
+    novalidate
+    (submit)="buscarPorParametro()"
+>
+  <label for="buscar">Busqueda</label>
+  <input id="buscar" name="parameto-busqueda" type="text" [(ngModel)]="parametroBusqueda">
+
+  <button type="submit">Buscar</button>
+
+</form>
