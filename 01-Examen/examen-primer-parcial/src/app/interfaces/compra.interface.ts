@@ -1,5 +1,6 @@
+import { Factura } from './factura.interface';
+
 export interface Compra {
-    numeroFactura?: number;
     nombreCajeroAtendioCompra: string;
-    nombreComprador: string;
+    factura: Factura;
 }

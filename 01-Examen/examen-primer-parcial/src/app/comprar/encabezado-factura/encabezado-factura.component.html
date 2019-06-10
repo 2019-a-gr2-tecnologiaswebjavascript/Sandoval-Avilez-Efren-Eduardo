@@ -1,0 +1,25 @@
+<form
+    #formularioEncabezado="ngForm"
+    novalidate
+    (submit)="registrarCompra()"
+>
+  <label for="nombre-cliente">Nombre:</label>
+  <input id="nombre-cliente" name="nombre-cliente" type="text" [(ngModel)]="encabezado.cliente.nombreCliente">
+
+  <label for="ruc-cliente">Apellido:</label>
+  <input id="ruc-cliente" name="ruc-cliente" type="number" [(ngModel)]="encabezado.cliente.cedulaRucCliente">
+
+  <label for="direccion-cliente">Nombre:</label>
+  <input id="direccion-cliente" name="direccion-cliente" type="text" [(ngModel)]="encabezado.cliente.direccionCliente">
+
+  <label for="telefono-cliente">Apellido:</label>
+  <input id="telefono-cliente" name="telefono-cliente" type="number" [(ngModel)]="encabezado.cliente.telefonoCliente">
+
+  <label for="correo-cliente">Nombre:</label>
+  <input id="correo-cliente" name="correo-cliente" type="email" [(ngModel)]="encabezado.cliente.correoCliente">
+
+  <app-detalle-factura></app-detalle-factura>
+  
+  <button type="submit">Finalizar Compra</button>
+
+</form>

@@ -1,0 +1,7 @@
+<div *ngFor="let producto of productos">
+    <p>
+      {{producto.nombreProducto}}
+      <button (click)="incrementarCantidadDetalle(producto)">+</button>
+    </p>
+  </div>
+  

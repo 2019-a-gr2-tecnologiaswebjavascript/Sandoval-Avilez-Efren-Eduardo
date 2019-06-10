@@ -1,0 +1,6 @@
+<div *ngFor="let detalle of detalles">
+  <p>
+    {{detalle.productoDetalle.nombreProducto}}
+    <button (click)="decrementarCantidadDetalle(detalle)">-</button>
+  </p>
+</div>
