@@ -7,6 +7,12 @@ import { LoginModule } from './login/login.module';
 import { SharedModule } from './shared.module';
 import { PresentacionModule } from './presentacion/presentacion.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { UsuarioService } from './servicios/http/usuario.service';
+import { NivelService } from './servicios/http/nivel.service';
+import { AreaService } from './servicios/http/area.service';
+import { MasetaService } from './servicios/http/maseta.service';
+import { ViviendaService } from './servicios/http/vivienda.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,12 +22,19 @@ import { DashboardModule } from './dashboard/dashboard.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     SharedModule,
     LoginModule,
     PresentacionModule,
     DashboardModule
   ],
-  providers: [],
+  providers: [
+    UsuarioService,
+    ViviendaService,
+    NivelService,
+    AreaService,
+    MasetaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
