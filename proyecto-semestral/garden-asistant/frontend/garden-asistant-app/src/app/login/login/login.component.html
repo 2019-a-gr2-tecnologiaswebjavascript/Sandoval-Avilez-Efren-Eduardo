@@ -3,19 +3,33 @@
         <mat-card-title>Inicio de Sesión</mat-card-title>
         <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
     </mat-card-title-group>
-    <mat-card-content>
-        <form class="my-form">
-            <mat-form-field class="full-width">
-                <mat-label>Usuario</mat-label>
-                <input matInput placeholder="Email" name="email">
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <mat-label>Contraseña</mat-label>
-                <input matInput placeholder="Password" name="password">
-            </mat-form-field>
-        </form>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-raised-button (click)="login()" color="accent">Ingresar</button>
-    </mat-card-actions>
+    <form
+        class="my-form"
+        #formularioLogin="ngForm"
+        novalidate
+        (submit)="login(formularioLogin)">
+        <mat-card-content>
+                <mat-form-field class="full-width">
+                    <mat-label>Nombre de Usuario</mat-label>
+                    <input 
+                        matInput 
+                        placeholder="Nombre de Usuario" 
+                        name="usuario"
+                        [(ngModel)]="nombreUsuario" 
+                        required>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <mat-label>Contraseña</mat-label>
+                    <input 
+                        matInput 
+                        placeholder="Password" 
+                        name="password" 
+                        [(ngModel)]="passwordUsuario"
+                        required>
+                </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button type="submit" [disabled]="formularioLogin.invalid" color="accent">Ingresar</button>
+        </mat-card-actions>
+    </form>
 </mat-card>
